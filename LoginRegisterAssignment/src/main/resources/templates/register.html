@@ -1,10 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
 <head>
-	<meta charset="UTF-8" />
-	<title>register</title>
+<meta charset="UTF-8" />
+<title>signup</title>
 </head>
 <body>
-	<h1>This is Register Page</h1>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<!-- 3 6 3  -->
+					<div class="card mt-3 p-4" >
+
+
+							<h1 class="text-center">Register Here</h1>
+
+
+
+
+							<form th:action="@{/register}">
+
+								<!-- name field -->
+								<div class="form-group">
+									<label for="nameField">Name </label> <input name="name"
+										type="text" class="form-control " id="nameField"
+										placeholder="Enter name">
+
+
+
+								</div>
+								<div class="form-group">
+									<label for="emailField">Email</label> <input name="email"
+										type="email" class="form-control" id="emailField"
+										placeholder="email@example.com">
+
+
+								</div>
+								<div class="form-group">
+									<label for="passwordField">Password</label> <input
+										name="password" type="password" class="form-control"
+										id="passwordField" placeholder="Password" required="required">
+								</div>
+
+
+								<div class="container text-center">
+									<button type="submit" class="btn bg-primary text-white">Sign
+										up</button>
+									<button type="reset" class="btn bg-danger text-white"
+										onclick="window.location.href='/login'">Go to Login</button>
+
+
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 </body>
 </html>
