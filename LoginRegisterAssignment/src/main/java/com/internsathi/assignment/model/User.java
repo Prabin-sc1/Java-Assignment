@@ -29,6 +29,9 @@ public class User {
 
 //	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message = "Invalid password. It must be at least 8 characters long and contain at least one letter and one number.")
 	private String password;
+	
+	private String role;
+	
 
 	public User() {
 	}

@@ -23,16 +23,25 @@
 					<div id="login-column" class="col-md-6">
 
 						<div id="login-box" style="height: 500px;" class="col-md-12">
-							<form id="login-form" class="form" th:action="@{/dologin}"
+							<form id="login-form" class="form" th:action="@{/login}"
 								action="#" method="post">
 
 								<div class="card p-4">
+
+									<div th:if="${param.error}" class="alert alert-danger">
+										Invalid Username & password</div>
+
+
+
+									<div th:if="${param.logout}" class="alert alert-success">
+										Logout Successfully</div>
+
 									<h3 class="text-center">Login</h3>
 
 
 
 
-	
+
 
 									<div class="form-group">
 										<label for="username">Email:</label><br> <input
@@ -63,7 +72,7 @@
 									</div>
 									<div class="container">
 										<div class="form-group">
-											<a href="/signup" class="btn btn-primary btn-block"
+											<a href="/register" class="btn btn-primary btn-block"
 												style="background-color: green; color: white;"> Create
 												new account</a>
 										</div>
