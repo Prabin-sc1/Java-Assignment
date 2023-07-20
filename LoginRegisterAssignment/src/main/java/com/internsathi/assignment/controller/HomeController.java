@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.internsathi.assignment.model.User;
 import com.internsathi.assignment.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
 
@@ -31,14 +33,24 @@ public class HomeController {
 	}
 
 	@PostMapping("/create-user")
-	public String createUser(@ModelAttribute User u) {
-//		System.out.println("User :: " + u);
-		
-		User tempUser = this.userService.createUser(u);
-		if(tempUser != null) {
-			System.out.println("registered successfully");
+	public String createUser(@ModelAttribute User u, HttpSession session) {
+		if (this.userService.checkEmail(u.getEmail())) {
+//			System.out.println("user already exists");
+
+			session.setAttribute("msg", "user of this email already exists");
+			
 		} else {
-			System.out.println("something went wrong");
+
+			User tempUser = this.userService.createUser(u);
+			if (tempUser != null) {
+//				System.out.println("registered successfully");
+				session.setAttribute("msg", "registered successfully");
+			} else {
+				//System.out.println("something went wrong");
+
+				session.setAttribute("msg", "something went wrong");
+			}
+
 		}
 		return "redirect:/register";
 	}
