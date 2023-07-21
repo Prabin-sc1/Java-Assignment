@@ -19,29 +19,35 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-//	@NotBlank(message = "Name shouldn't be blank")
-//	@Size(min = 2, max = 20, message = "min 2 and max 20 characters required")
+	@NotBlank(message = "Name shouldn't be blank")
+	@Size(min = 2, max = 20, message = "min 2 and max 20 characters required")
 	private String name;
-//
-//	@Column(unique = true)
-//	@Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid email")
+
+	@Column(unique = true)
+	@Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid email")
 	private String email;
 
+	@NotBlank(message = "Password shouldn't be blank")
+	@Size(min = 8, message = "Password must be at least 8 characters long")
 //	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message = "Invalid password. It must be at least 8 characters long and contain at least one letter and one number.")
 	private String password;
-	
+
 	private String role;
-	
 
 	public User() {
 	}
 
-	public User(int id, String name, String email, String password) {
+	public User(int id,
+			@NotBlank(message = "Name shouldn't be blank") @Size(min = 2, max = 20, message = "min 2 and max 20 characters required") String name,
+			@Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid email") String email,
+			@NotBlank(message = "Password shouldn't be blank") @Size(min = 8, message = "Password must be at least 8 characters long") String password,
+			String role) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 
 }
