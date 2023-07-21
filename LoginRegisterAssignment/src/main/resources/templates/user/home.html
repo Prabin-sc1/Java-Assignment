@@ -1,13 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	th:replace="base::Layout(~{::div})">
 <head>
 <meta charset="UTF-8" />
-<title>userhome</title>
+<title>User Home</title>
 </head>
 <body>
-	<h1>User home after login</h1>
+	<div class="container">
+		<div class="card mt-3">
+			<div style="text-align: center;">
 
-	<a href="/logout">Logout</a>
+				<h1>User Dashboard</h1>
+				<a href="/logout"
+					style="display: inline-block; padding: 10px 20px; margin: 20px; background-color: #f00; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s;">Logout</a>
+			</div>
+		</div>
+
+	</div>
 
 </body>
 </html>
