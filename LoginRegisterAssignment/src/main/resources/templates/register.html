@@ -14,12 +14,15 @@
 					<!-- 3 6 3  -->
 					<div class="card mt-3 p-4">
 
-						<th:block th:if="${session.msg}">
-							<p>[[${session.msg}]]</p>
 
-						</th:block>
+						<div th:if="${session.msg}" th:classappend="${session.msg.type}"
+							class="alert" role="alert">
+							<p class="text-center" th:text="${session.msg.content}"></p>
+							<th:block th:text="${@sessionRemover.removeMessageFromSession()}"></th:block>
+						</div>
 
-						<h1 class="text-center">Register Here</h1>
+
+						<h3 class="text-center">Register</h3>
 
 
 						<form th:action="@{/create-user}" th:object="${user}"
@@ -53,7 +56,8 @@
 								<label for="passwordField">Password</label> <input
 									name="password" type="password" class="form-control"
 									th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}"
-									id="passwordField" placeholder="Password" required="required" th:value="${user.password}">
+									id="passwordField" placeholder="Password" required="required"
+									th:value="${user.password}">
 
 
 								<div th:each="e : ${#fields.errors('password')}"

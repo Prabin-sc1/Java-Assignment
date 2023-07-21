@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.internsathi.assignment.helper.MyMessage;
 import com.internsathi.assignment.model.User;
 import com.internsathi.assignment.service.UserService;
 
@@ -44,22 +45,27 @@ public class HomeController {
 				System.out.println("Error :: " + result.toString());
 				m.addAttribute("user", user);
 
-				session.setAttribute("msg", "Something went wrong!! ");
+//				session.setAttribute("msg", "Something went wrong!! ");
+				session.setAttribute("msg", new MyMessage("Something went wrong!! ", "alert-danger"));
 
 				return "register";
 			}
 
 			if (this.userService.checkEmail(user.getEmail())) {
-				session.setAttribute("msg", "user of this email already exists");
+				session.setAttribute("msg", new MyMessage("Something went wrong!! ", "alert-danger"));
 
 			} else {
 
 				User tempUser = this.userService.createUser(user);
 				if (tempUser != null) {
-					session.setAttribute("msg", "registered successfully");
+//					session.setAttribute("msg", "registered successfully");
+					session.setAttribute("msg", new MyMessage("Successfully Added!! ", "alert-success"));
+
 				} else {
 
-					session.setAttribute("msg", "something went wrong");
+//					session.setAttribute("msg", "something went wrong");
+					session.setAttribute("msg", new MyMessage("Something went wrong!! ", "alert-danger"));
+
 				}
 
 			}
