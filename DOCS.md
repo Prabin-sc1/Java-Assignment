@@ -8,6 +8,7 @@ Simple Login and Registration Project Using Spring Boot, Thymeleaf, and MySQL ba
     2. Demo
     3. Technologies and Tools Used
     4. Installation
+    5. Screenshots
 
     
     
@@ -71,7 +72,7 @@ c. You should be connected with internet
 5. Open your favourite browser and copy the below url and paste it in your browser 
   http://localhost:9494/
 
-##Screenshot
+## Screenshots
 
 ![Screenshot (167)](https://github.com/Prabin-sc1/Java-Assignment/assets/79828184/6ac9cdac-58e2-44a3-ab32-5c800b73ff90)
 ![Screenshot (168)](https://github.com/Prabin-sc1/Java-Assignment/assets/79828184/3e098302-3344-43a0-9db3-f171cfdc848a)
